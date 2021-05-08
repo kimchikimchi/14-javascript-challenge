@@ -39,6 +39,24 @@
                         <label for="date">Enter a Date</label>
                         <input class="form-control" id="datetime" type="text" placeholder="MM/DD/YYYY">
                       </li>
+                      <li class="filter list-group-item">
+                        <label for="city">Enter City name</label>
+                        <input class="form-control" id="city" type="text" placeholder="City Name">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="state">Enter State Code</label>
+                        <input class="form-control" id="state" type="text" placeholder="State Code">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label for="country">Enter Country Code</label>
+                        <input class="form-control" id="country" type="text" placeholder="Country Code">
+                      </li>
+                      <li class="filter list-group-item">
+                        <label>Select a Shape</label>
+                        <select id='shape' name='shape_list'>
+                          <!-- option tags will be populated by JS at page loading-->
+                        </select>
+                      </li>
                     </ul>
                   </div>
                   <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
