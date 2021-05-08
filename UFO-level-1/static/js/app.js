@@ -1,17 +1,39 @@
 // from data.js
 const tableData = data;
 
+
+function filterData(row, field){
+
+}
+
+
+
 function handleForm() {
     // Prevent the page from refreshing
     d3.event.preventDefault();
 
-    // parse entered date filter string
+    // parse entered date filter string and other filter criteria
     const datetime = d3.select('#datetime').property('value');
-
+    const city = d3.select('#city').property('value');
+    const state = d3.select('#state').property('value');
+    const country = d3.select('#country').property('value');
 
     // filter data based on date
     filteredTableData = tableData.filter(row => {
-        return row.datetime === datetime;
+        // return row.datetime === datetime;
+
+        // if any of fields are defined but doesn't match, reject the row
+        if (datetime && row.datetime !== datetime) {
+            return false;
+        } else if (city && row.city !== city) {
+            return false;
+        } else if (state && row.state != state) {
+            return false;
+        } else if (country && row.country != country) {
+            return false;
+        }
+
+        return true;
     });
 
 
