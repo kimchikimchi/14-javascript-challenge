@@ -7,7 +7,7 @@ function handleForm() {
 
     // parse entered date filter string
     const datetime = d3.select('#datetime').property('value');
-    console.log(`datetime is ${datetime}`);   
+    // console.log(`datetime is ${datetime}`);   
 
     // filter data based on date
     filteredTableData = tableData.filter(row => {
@@ -17,6 +17,12 @@ function handleForm() {
 
     // Locate tbody tag and store into a variable
     const tbody = d3.select('tbody');
+    /*
+      Clear the existing table first or we'll keep appending data every time
+      form is submitted again.
+      See https://stackoverflow.com/questions/14422198/how-do-i-remove-all-children-elements-from-a-node-and-then-apply-them-again-with
+    */
+    tbody.selectAll('tr').remove();
 
     // Append rows populated with filtered data
     filteredTableData.forEach(row => {
